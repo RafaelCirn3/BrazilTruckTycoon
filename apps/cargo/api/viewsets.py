@@ -7,4 +7,4 @@ class CargoViewSet(viewsets.ModelViewSet):
     queryset = CargoModel.objects.all()
     serializer_class = CargoSerializer
     permission_classes = [IsAuthenticated, ]
-    http_method_names = ['get', 'post', 'put','patch', 'delete']
+    http_method_names = ['get', 'post', 'put', 'patch', 'delete']

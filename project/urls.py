@@ -19,10 +19,12 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from apps.cargo.api.viewsets import CargoViewSet
+from apps.drivers.api.viewsets import DriverViewSet
 
 # Create a router and register our viewset with it.
 router = DefaultRouter()
 router.register(r'cargo', CargoViewSet, basename='cargo')
+router.register(r'driver', DriverViewSet,basename='driver')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),

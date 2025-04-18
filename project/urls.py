@@ -22,6 +22,8 @@ from apps.cargo.api.viewsets import CargoViewSet
 from apps.drivers.api.viewsets import DriverViewSet
 from apps.trucks.api.viewsets import TruckViewSet
 from apps.gameroutes.api.viewsets import GameRoutesViewSet
+from apps.economy.api.viewsets import FuelPriceViewSet, CargoPricesViewSet, PartPricesViewSet
+from apps.gamelock.api.viewsets import GameLockViewSet
 from apps.mechanics.api.viewsets import PartsViewSet, WearOfPartsViewSet, PartsMaintenanceViewSet, PartsTypeViewSet
 # Create a router and register our viewset with it.
 router = DefaultRouter()
@@ -38,6 +40,12 @@ router.register(r'parts', PartsViewSet, basename='parts')
 router.register(r'wear_of_parts', WearOfPartsViewSet, basename='wear_of_parts')
 router.register(r'parts_maintenance', PartsMaintenanceViewSet, basename='parts_maintenance')
 router.register(r'parts_type', PartsTypeViewSet, basename='parts_type')
+#economy
+router.register(r'fuel_price', FuelPriceViewSet, basename='fuel_price')
+router.register(r'cargo_prices', CargoPricesViewSet, basename='cargo_prices')
+router.register(r'part_prices', PartPricesViewSet, basename='part_prices')
+#game lock
+router.register(r'game_lock', GameLockViewSet, basename='game_lock')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

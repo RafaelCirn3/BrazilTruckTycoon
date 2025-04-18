@@ -20,11 +20,25 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from apps.cargo.api.viewsets import CargoViewSet
 from apps.drivers.api.viewsets import DriverViewSet
-
+from apps.trucks.api.viewsets import TruckViewSet
+from apps.gameroutes.api.viewsets import GameRoutesViewSet
+from apps.mechanics.api.viewsets import PartsViewSet, WearOfPartsViewSet, PartsMaintenanceViewSet, PartsTypeViewSet
 # Create a router and register our viewset with it.
 router = DefaultRouter()
+#gameroutes
+router.register(r'game_routes', GameRoutesViewSet, basename='game_routes')
+#trucks
+router.register(r'trucks', TruckViewSet, basename='trucks')
+#cargo
 router.register(r'cargo', CargoViewSet, basename='cargo')
+#drivers
 router.register(r'driver', DriverViewSet,basename='driver')
+#mechanics
+router.register(r'parts', PartsViewSet, basename='parts')
+router.register(r'wear_of_parts', WearOfPartsViewSet, basename='wear_of_parts')
+router.register(r'parts_maintenance', PartsMaintenanceViewSet, basename='parts_maintenance')
+router.register(r'parts_type', PartsTypeViewSet, basename='parts_type')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
